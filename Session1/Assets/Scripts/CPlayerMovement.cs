@@ -22,6 +22,7 @@ public class CPlayerMovement : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    HandleInputs();
     float hInput = Input.GetAxis("Horizontal");
     float vInput = Input.GetAxis("Vertical");
 
@@ -53,5 +54,40 @@ public class CPlayerMovement : MonoBehaviour
     // we change the speed of the movement by setting the
     // PosZ parameter in our animator.
     mAnimator.SetFloat("PosZ", vInput * speed / (2.0f * mWalkSpeed));
+  }
+
+  private void HandleInputs()
+  {
+    if(Input.GetKeyDown(KeyCode.Space))
+    {
+      mAnimator.SetTrigger("JumpParameter");
+    }
+    if(Input.GetKeyDown(KeyCode.X))
+    {
+      mAnimator.SetBool("Attack1Parameter", true);
+    }
+    if(Input.GetKeyUp(KeyCode.X))
+    {
+      mAnimator.SetBool("Attack1Parameter", false);
+    }
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+      mAnimator.SetTrigger("Reload");
+    }
+  }
+
+  private void Jump()
+  {
+
+  }
+
+  private void Attack()
+  {
+
+  }
+
+  private void Reload()
+  {
+
   }
 }
