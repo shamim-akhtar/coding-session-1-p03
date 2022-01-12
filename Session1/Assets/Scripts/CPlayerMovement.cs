@@ -74,11 +74,6 @@ public class CPlayerMovement : MonoBehaviour
     {
       mAnimator.SetTrigger("Reload");
     }
-    if (Input.GetKeyDown(KeyCode.G))
-    {
-      mAnimator.SetTrigger("Reload");
-      Debug.Log("Error. PLease remove");
-    }
   }
 
   private void Jump()
